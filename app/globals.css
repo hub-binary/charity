@@ -2,7 +2,7 @@
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Roboto Mono', 'Roboto', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
   --foreground-rgb: 0, 0, 0;
@@ -87,12 +87,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
 }
 
 a {
@@ -100,8 +95,48 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+
+.navbar{
+}
+
+
+.header{
+  height: 600px;
+  /*display: flex;*/
+  justify-content: space-between;
+  align-items: center;
+  background-size: cover;
+  background-color: #00000052;
+  padding: 4rem 1.25rem;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-image: url('/assets/images/one-african-child.jpg');
+} 
+
+
+.header-text{
+  max-width: 500px;
+  padding: 0px 2.5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  color: #fff;
+}
+
+.header-text-title{
+  font-size: 37px;
+}
+
+.header-text-intro{
+  font-size: 18px;
+  margin: 15px 0px;
+}
+
+
+.header-blob{
+  max-width: 500px;
+}
+
+.svg-blob {
+  fill:  #3dab31;
+  /*background-size: cover;*/
 }
