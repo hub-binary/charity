@@ -1,15 +1,23 @@
-'use client'
-
-
-import {HeroSection} from 'src/components'
+// 'use-client'
+// import {Button} from '@chakra-ui/next-js'
 import Image from 'next/image'
-import styles from './page.module.css'
+// import styles from './page.module.css'
 
 
 export default function Home() {
   return (
     <div className="">
-      <HeroSection />
+      <div class="fh5co-hero">
+        <div class="fh5co-overlay"></div>
+        <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style={{}}>
+          <div class="desc animate-box">
+            <h2><strong> Help </strong> <strong> Poor Children </strong> </h2>
+
+
+            <span class="mt-3"><a class="btn btn-primary btn-lg" href="#">Donate Now</a></span>
+          </div>
+        </div>
+      </div>
       
       {/* end:header-top */}
       <div id="fh5co-features">
