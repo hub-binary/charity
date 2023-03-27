@@ -1,7 +1,6 @@
 'use client'
 import QRCode from "qrcode.react";
 import Image from 'next/image'
-// import styles from './page.module.css'
 
 
 export default function Home() {
@@ -12,6 +11,7 @@ export default function Home() {
   )
 }
 
+
 const causes = [
   { name: "Cause 1", value: "cause1" },
   { name: "Cause 2", value: "cause2" },
@@ -21,7 +21,9 @@ const causes = [
   { name: "Cause 6", value: "cause6" },
 ];
 
-const BTCDonation = () => {
+
+
+export const DonationComponent = () => {
   const [amount, setAmount] = useState(null);
   const [cause, setCause] = useState(null);
   const [showQR, setShowQR] = useState(false);
@@ -82,6 +84,4 @@ const BTCDonation = () => {
     </div>
   );
 };
-
-export default BTCDonation;
 
