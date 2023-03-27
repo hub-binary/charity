@@ -3,13 +3,19 @@ import 'bootstrap/dist/css/bootstrap.css'
 import QRCode from "qrcode.react";
 import Image from 'next/image'
 import {useState} from 'react'
-import {HeroSection} from 'src/components';
+import {HeroSection, ProjectSection, PhilantrophySection} from 'src/components';
 
 
 export default function Home() {
   return(
     <div className="">
+      <HeroSection />
+
+      <PhilantrophySection />
+
       <DonationComponent />
+
+      <ProjectSection />
     </div>
   )
 }
