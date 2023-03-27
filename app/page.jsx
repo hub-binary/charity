@@ -22,7 +22,7 @@ export default function Home() {
           <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
               <h3>Our Philantrophist</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+              <p>Hear from people who believe in our work and have supported us, our Heros!</p>
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function Home() {
           <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
               <h3>Our Projects. Support Us</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+              <p>Help us provide housing, clean water, proper nutrition, health supplies, educational materials and more.</p>
             </div>
           </div>
         </div>

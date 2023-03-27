@@ -16,12 +16,11 @@ export default function Home() {
 
 
 const causes = [
-  { name: "Cause 1", value: "cause1" },
-  { name: "Cause 2", value: "cause2" },
-  { name: "Cause 3", value: "cause3" },
-  { name: "Cause 4", value: "cause4" },
-  { name: "Cause 5", value: "cause5" },
-  { name: "Cause 6", value: "cause6" },
+  { name: "Food and Water Provision", value: "cause1" },
+  { name: "Clothing Giving", value: "cause2" },
+  { name: "Housing and Medical Care", value: "cause3" },
+  { name: "Toys Provision", value: "cause4" },
+  { name: "Education for Growth", value: "cause5" },
 ];
 
 
@@ -46,7 +45,7 @@ export const DonationComponent = () => {
   };
 
   return (
-    <div>
+    <div className="container py-5">
       {showQR ? (
         <div>
           <p>Scan this QR code to donate:</p>
@@ -60,25 +59,33 @@ export const DonationComponent = () => {
       ) : (
 
         <div>
-          <p>Select the amount you want to donate:</p>
-          <div>
-            <button className="p-2 rounded" onClick={() => setAmount(1)}>1 BTC</button>
+          <div className="form-group">
+            <p>Select the amount you want to donate:</p>
+            <div className="row">
+              <input type="radio" name="amount" className="p-2 rounded" onClick={() => setAmount(50)} value="$50 USD" />
+              <input type="radio" name="amount" className="p-2 rounded" onClick={() => setAmount(50)} value="$50 USD" />
+              <input type="radio" name="amount" className="p-2 rounded" onClick={() => setAmount(50)} value="$50 USD" />
+              <input type="radio" name="amount" className="p-2 rounded" onClick={() => setAmount(50)} value="$50 USD" />
+            </div>
           </div>
-          <p>Select the cause you want to donate for:</p>
-          <div>
-            {causes.map((cause) => (
-              <div key={cause.value}>
-                <input
-                  type="radio"
-                  id={cause.value}
-                  name="cause"
-                  value={cause.value}
-                  checked={cause.value === cause}
-                  onChange={handleCauseChange}
-                />
-                <label htmlFor={cause.value}>{cause.name}</label>
-              </div>
-            ))}
+
+          <div className="form-group">
+            <p>Select the cause you want to donate for:</p>
+            <div>
+              {causes.map((cause) => (
+                <div key={cause.name}>
+                  <input
+                    type="radio"
+                    id={cause.name}
+                    name="reason"
+                    value={cause.name}
+                    // checked={cause.name === cause}
+                    onChange={handleCauseChange}
+                  />
+                  <label htmlFor={cause.name}>{cause.name}</label>
+                </div>
+              ))}
+            </div>
           </div>
           <button className="btn btn-primary" onClick={handleDonateClick}>Donate</button>
         </div>

@@ -8,7 +8,7 @@ export const Navbar = ({ toggleNav }) => {
 	const router = useRouter();
 
 	return(
-		<header id="fh5co-header-section" class="sticky-banner">
+		<header style={{position: 'sticky !important', top: '0%'}} id="fh5co-header-section" class="sticky-banner">
       <div class="container">
         <div class="nav-header">
           <span onClick={toggleNav} class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></span>
@@ -86,6 +86,7 @@ export const Sidebar = ({}) => {
     </nav>
   )
 }
+
 
 export const GivingSection = ({}) => {
 

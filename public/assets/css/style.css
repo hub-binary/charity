@@ -24,6 +24,10 @@ body.fh5co-offcanvas {
   overflow: hidden;
 }
 
+.text-white{
+  color: #fff;
+}
+
 a {
   color: #ff5722;
   -webkit-transition: 0.5s, ease;
@@ -1193,8 +1197,8 @@ figure {
 }
 
 #fh5co-wrapper {
-  overflow-x: hidden;
-  position: relative;
+  /* overflow-x: hidden; */
+  /* position: relative; */
 }
 
 .fh5co-offcanvas {
@@ -1236,14 +1240,13 @@ figure {
   transition: .5s;
   height: 100% !important;
   overflow-y: auto !important;
-  /* display: none; */
+  display: none; 
 }
-@media screen and (max-width: 768px) {
-  #offcanvas-menu {
-    display: block;
-  }
 
+
+@media screen and (max-width: 768px) {
   #offcanvas-menu.open{
+    display: block;
     right: 0px;
     transition: .5s;
   }
