@@ -1245,8 +1245,12 @@ figure {
 
 
 @media screen and (max-width: 768px) {
-  #offcanvas-menu.open{
+  #offcanvas-menu{
     display: block;
+    overflow: auto;
+  }
+
+  #offcanvas-menu.open{
     right: 0px;
     transition: .5s;
   }
