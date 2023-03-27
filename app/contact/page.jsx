@@ -24,7 +24,7 @@ export default function Home() {
               <p>Please leave us a message, we're always happy to hear from you.</p>
               <ul class="contact-info">
                 <li><i class="icon-location-pin"></i>198 West 21th Street, Suite 721 New York NY 10016</li>
-                <li><i class="icon-phone2"></i>+ 1235 2355 98</li>
+                <li><i class="icon-phone2"></i>+1 (385) 3815 715 </li>
                 <li><i class="icon-mail"></i><a href="mailto:info@littleheartsfoundation.org">info@littleheartsfoundation.org</a></li>
                 <li><i class="icon-globe2"></i><a href="https://littleheartsfoundation.org">www.littleheartsfoundation.org</a></li>
               </ul>

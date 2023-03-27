@@ -144,3 +144,13 @@ a {
 .mt-3{
   margin-top: 3.4rem;
 }
+
+.btn{
+  padding: 20px;
+}
+
+
+
+.btn-primary{
+  background: #eb5521;
+}

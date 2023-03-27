@@ -1,9 +1,9 @@
-// "use client"
+"use client"
 
 import './globals.css'
+import {createContext} from 'react';
 import { Roboto } from 'next/font/google'
-import {Navbar} from 'src/components'
-
+import {Navbar, Sidebar} from 'src/components'
 
 const inter = Roboto({ 
   subsets: ['latin'],
@@ -11,9 +11,20 @@ const inter = Roboto({
 })
 
 
+export const GlobalStore = createContext();
+
 export default function RootLayout({ children }) {
+  function toggleNav(){
+    let menu = document.querySelector('#offcanvas-menu');
+    menu.classList.toggle('open');
+  }
+
+  const context = {
+    toggleNav,
+  }
 
   return (
+    <GlobalStore.Provider value={context}>
     <html lang="en">
       <head>
         <title> Little Hearts Foundation for Children </title>
@@ -38,38 +49,11 @@ export default function RootLayout({ children }) {
         <div id="fh5co-wrapper">
           <div id="fh5co-page">
 
+            {/* Sidebar */}
+            <Sidebar />
+              
             {/* Navbar */}
-              <nav id="offcanvas-menu" role="navigation" style={{height: "664px"}}>
-                <ul class="" id="" style={{touchAction: "pan-y"}}>
-                  <li class="active">
-                    <a href="index.html">Home</a>
-                  </li>
-                  <li>
-                    <a href="#" class="fh5co-sub-ddown sf-with-ul">Get Involved</a>
-                    <ul class="fh5co-sub-menu" style={{display: "none"}}>
-                      <li><a href="#">Donate</a></li>
-                      <li><a href="#">Fundraise</a></li>
-                      <li><a href="#">Campaign</a></li>
-                      <li><a href="#">Philantrophy</a></li>
-                      <li><a href="#">Volunteer</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#" class="fh5co-sub-ddown sf-with-ul">Projects</a>
-                     <ul class="fh5co-sub-menu" style={{display: "none"}}>
-                      <li><a href="#">Water World</a></li>
-                      <li><a href="#">Cloth Giving</a></li>
-                      <li><a href="#">Medical Mission</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="blog.html">Blog</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                </ul>
-              </nav>
-            {/* Navbar */}
-
-            <Navbar />        
+            <Navbar toggleNav={toggleNav} />        
           
             <div>
               {children}
@@ -80,18 +64,12 @@ export default function RootLayout({ children }) {
             <footer>
               <div id="footer">
                 <div class="container">
-                  <div class="row">
-                    <div class="col-md-6 col-md-offset-3 text-center">
-                      <p class="fh5co-social-icons">
-                        <a href="#"><i class="icon-twitter2"></i></a>
-                        <a href="#"><i class="icon-facebook2"></i></a>
-                        <a href="#"><i class="icon-instagram"></i></a>
-                        <a href="#"><i class="icon-dribbble2"></i></a>
-                        <a href="#"><i class="icon-youtube"></i></a>
-                      </p>
-                      <p>&copy; Copyright 2023 <a href="/">Little Hearts Foundation</a>. All Rights Reserved. </p>
-                    </div>
+                  <div class="">
+                    <h2 className="text-white"> Little Hearts Foundation </h2>
                   </div>
+
+
+                  <p>&copy; Copyright 2023 <a href="/">Little Hearts Foundation</a>. All Rights Reserved. </p>
                 </div>
               </div>
             </footer>
@@ -118,5 +96,6 @@ export default function RootLayout({ children }) {
         <script src="/assets/js/main.js"></script>
       </body>
     </html>
+    </GlobalStore.Provider>
   )
 }

@@ -1,12 +1,15 @@
 'use client'
+import 'bootstrap/dist/css/bootstrap.css'
 import QRCode from "qrcode.react";
 import Image from 'next/image'
+import {useState} from 'react'
+import {HeroSection} from 'src/components';
 
 
 export default function Home() {
   return(
     <div className="">
-      
+      <DonationComponent />
     </div>
   )
 }
@@ -47,7 +50,7 @@ export const DonationComponent = () => {
       {showQR ? (
         <div>
           <p>Scan this QR code to donate:</p>
-          <QRCode value={`bitcoin:${process.env.REACT_APP_BTC_ADDRESS}?amount=${amount}&message=${cause}`} />
+          <QRCode value={`bitcoin:${process.env.BTC_RECEIVERS_ADDRESS}?amount=${amount}&message=${cause}`} />
           <p>Notes:</p>
           <ul>
             <li>Make sure to copy the exact amount and message to avoid any issues.</li>
@@ -55,12 +58,11 @@ export const DonationComponent = () => {
           </ul>
         </div>
       ) : (
+
         <div>
           <p>Select the amount you want to donate:</p>
           <div>
-            <button onClick={() => setAmount(1)}>1 BTC</button>
-            <button onClick={() => setAmount(0.5)}>0.5 BTC</button>
-            <button onClick={() => setAmount(0.1)}>0.1 BTC</button>
+            <button className="p-2 rounded" onClick={() => setAmount(1)}>1 BTC</button>
           </div>
           <p>Select the cause you want to donate for:</p>
           <div>
@@ -78,7 +80,7 @@ export const DonationComponent = () => {
               </div>
             ))}
           </div>
-          <button onClick={handleDonateClick}>Donate</button>
+          <button className="btn btn-primary" onClick={handleDonateClick}>Donate</button>
         </div>
       )}
     </div>

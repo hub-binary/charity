@@ -16,7 +16,7 @@ body {
   line-height: 1.6;
   font-size: 16px;
   background: #fff;
-  color: #848484;
+  color: #eb5521;
   font-weight: 300;
   overflow-x: hidden;
 }
@@ -1226,33 +1226,42 @@ figure {
 
 #offcanvas-menu {
   position: absolute;
-  top: 0;
+  top: 90px;
   bottom: 0;
   z-index: 99;
   background: #222;
-  right: -240px;
-  width: 240px;
+  right: -300px;
+  width: 300px;
   padding: 20px;
-  overflow-y: scroll !important;
-  display: none;
+  transition: .5s;
+  height: 100% !important;
+  overflow-y: auto !important;
+  /* display: none; */
 }
 @media screen and (max-width: 768px) {
   #offcanvas-menu {
     display: block;
   }
+
+  #offcanvas-menu.open{
+    right: 0px;
+    transition: .5s;
+  }
 }
+
+
 #offcanvas-menu ul {
   padding: 0;
   margin: 0;
 }
 #offcanvas-menu ul li {
   padding: 0;
-  margin: 0 0 10px 0;
+  margin: 17px 0;
   list-style: none;
 }
 #offcanvas-menu ul li a {
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255);
 }
 #offcanvas-menu ul li a:hover {
   color: #ff5722;

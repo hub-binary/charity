@@ -4,18 +4,18 @@ import {useRouter} from 'next/navigation'
 import Link from 'next/link'
 
 
-export const Navbar = ({ }) => {
+export const Navbar = ({ toggleNav }) => {
 	const router = useRouter();
-
-  console.log("router:", router)
 
 	return(
 		<header id="fh5co-header-section" class="sticky-banner">
       <div class="container">
         <div class="nav-header">
-          <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+          <span onClick={toggleNav} class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></span>
+
           <h1 id="fh5co-logo"><a href="index.html">Little Hearts </a></h1>
           {/* START #fh5co-menu-wrap */}
+
           <nav id="fh5co-menu-wrap" role="navigation">
             <ul class="sf-menu" id="fh5co-primary-menu">
                 <li>
@@ -50,6 +50,41 @@ export const Navbar = ({ }) => {
       </div>
     </header>
 	)
+}
+
+
+export const Sidebar = ({}) => {
+  return(
+    <nav id="offcanvas-menu" role="navigation" style={{height: "664px"}}>
+      <ul class="" id="" style={{touchAction: "pan-y"}}>
+        <li class="active">
+          <Link href="/">Home</Link>
+        </li>
+
+        <li>
+          <a href="#" class="fh5co-sub-ddown sf-with-ul">Get Involved</a>
+          <ul class="fh5co-sub-menu" style={{display: "none"}}>
+            <li><Link href="/donate">Donate</Link></li>
+            <li><Link href="#">Volunteer</Link></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#" class="fh5co-sub-ddown sf-with-ul">Projects</a>
+           <ul class="fh5co-sub-menu" style={{display: "none"}}>
+            <li><Link href="/causes/food-and-water">Food and Water Provision</Link></li>
+            <li><Link href="/causes/clothing">Clothing Giving</Link></li>
+            <li><Link href="/causes/medical">Housing and Medical Care</Link></li>
+            <li><Link href="/causes/toys">Toys Provision</Link></li>
+            <li><Link href="/causes/education">Education for Growth</Link></li>
+          </ul>
+        </li>
+
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  )
 }
 
 export const GivingSection = ({}) => {
@@ -112,7 +147,7 @@ export const GallerySection = ({}) => {
           <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
               <h3>Our Gallery</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+              <p>See the impact of kind gestures in the lives of these children. These pictures say a lot about how basic amenities affect the quality of life for poor people.</p>
             </div>
           </div>
 
