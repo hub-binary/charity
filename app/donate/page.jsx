@@ -11,11 +11,10 @@ export default function Home() {
     <div className="">
       <HeroSection />
 
-      <PhilantrophySection />
+      <ProjectSection />
 
       <DonationComponent />
 
-      <ProjectSection />
     </div>
   )
 }
