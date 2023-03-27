@@ -22,7 +22,7 @@ export const Navbar = ({ toggleNav }) => {
                   <Link href="/"> Home </Link>
                 </li>              
               <li>
-                <Link href="/">Get Involved</Link>
+                <Link href="#">Get Involved</Link>
                 <ul class="fh5co-sub-menu">
                   <li><Link href="/donate">Donate</Link></li>
                   <li><Link href="#">Volunteer</Link></li>
