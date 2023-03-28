@@ -40,6 +40,57 @@
   --card-border-rgb: 131, 134, 135;
 }
 
+
+.input{
+  width: 100%;
+  resize: vertical;
+  padding: 7px;
+  border-radius: 3px;
+}
+
+.amount{
+  margin: 5px;
+  padding: 15px;
+  border-radius: 7px;
+  border: 2px solid gray;
+  cursor: pointer;
+}
+
+.amount.active{
+  border-color: orange;
+}
+
+.amount:hover{
+  border-color: orange;
+  transition: border .5s;
+}
+
+.amount-row{
+  flex-wrap: wrap;
+  display: flex;
+  margin: 2rem auto;
+  justify-content: space-between;
+}
+
+
+.list{
+  list-style: none;
+}
+
+
+.cause:hover{
+  border-color: orange;
+  transition: border .5s;
+}
+
+.cause{
+  margin: 10px 0px;
+  padding: 15px;
+  border-radius: 7px;
+  border: 2px solid gray;
+  cursor: pointer;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

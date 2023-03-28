@@ -1,8 +1,8 @@
 'use client'
-import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap/dist/css/bootstrap.css'
 import QRCode from "qrcode.react";
 import Image from 'next/image'
-import {useState} from 'react'
+import {useState, useRef} from 'react'
 import {HeroSection, ProjectSection, PhilantrophySection} from 'src/components';
 
 
@@ -21,11 +21,11 @@ export default function Home() {
 
 
 const causes = [
-  { name: "Food and Water Provision", value: "cause1" },
-  { name: "Clothing Giving", value: "cause2" },
-  { name: "Housing and Medical Care", value: "cause3" },
-  { name: "Toys Provision", value: "cause4" },
-  { name: "Education for Growth", value: "cause5" },
+  "Food and Water Provision",
+  "Clothing Giving",
+  "Housing and Medical Care",
+  "Toys Provision",
+  "Education for Growth",
 ];
 
 
@@ -49,8 +49,61 @@ export const DonationComponent = () => {
     }
   };
 
+
+  const AmountScreen = ({ }) => {
+    const input = useRef()
+
+    const [activeAmount, setActiveAmount] = useState('25')
+    const [activeCause, setActiveCause] = useState('')
+    const [donation, setDonation] = useState(25)
+
+    function handleClick(){
+      const bar = input.current;
+      bar.focus();
+      setActiveAmount('other')
+    }
+
+    function changeAmount(amt){
+      setActiveAmount(`${amt}`)
+      setDonation(amt)
+    }
+
+    const amts = [25, 50, 75, 100, 200, 500, 1000]
+
+    return(
+      <div style={{ marginTop: '2rem'}}>
+        <div style={{ marginTop: '2rem'}}>
+          <h3>Please select a project you would love to support with a donation</h3>
+          <div>
+            <ul className="list">
+            {causes.map((cause) => 
+              <li className={`cause ${activeCause === cause && 'active'}`} key={cause} onClick={() => setCause(cause)}> {cause}</li>
+            )}
+          </ul>
+          </div>
+        </div>
+
+        <h3 class="f-head">Please enter the amount you wish to donate</h3>
+          
+        <input ref={input} type="number" min="10" className="p-2 input" onInput={(e) => setDonation(e.target.value)} value={donation} />
+        <div className="amount-row">
+          {amts.map(amt =>
+            <span onClick={() => changeAmount(amt)}  className={` amount ${activeAmount === `${amt}` && 'active'} `}> ${amt} </span>
+          )}
+          <span  onClick={handleClick} className={` amount ${activeAmount === 'other' && 'active'} `}> Other </span>
+        </div>
+
+        <h3 class="f-head"> Additional Notes </h3>
+        <textarea className="input" placeholder="Type your message here"></textarea>
+
+      </div>
+    )
+  }
+
   return (
-    <div className="container py-5">
+    <div className="container" style={{maxWidth: '700px', padding: "4rem auto", marginBottom: '6rem'}}>
+
+
       {showQR ? (
         <div>
           <p>Scan this QR code to donate:</p>
@@ -64,34 +117,7 @@ export const DonationComponent = () => {
       ) : (
 
         <div>
-          <div className="form-group">
-            <p>Select the amount you want to donate:</p>
-            <div className="row">
-              <input type="radio" name="amount" className="p-2 rounded" onClick={() => setAmount(50)} value="$50 USD" />
-              <input type="radio" name="amount" className="p-2 rounded" onClick={() => setAmount(50)} value="$50 USD" />
-              <input type="radio" name="amount" className="p-2 rounded" onClick={() => setAmount(50)} value="$50 USD" />
-              <input type="radio" name="amount" className="p-2 rounded" onClick={() => setAmount(50)} value="$50 USD" />
-            </div>
-          </div>
-
-          <div className="form-group">
-            <p>Select the cause you want to donate for:</p>
-            <div>
-              {causes.map((cause) => (
-                <div key={cause.name}>
-                  <input
-                    type="radio"
-                    id={cause.name}
-                    name="reason"
-                    value={cause.name}
-                    // checked={cause.name === cause}
-                    onChange={handleCauseChange}
-                  />
-                  <label htmlFor={cause.name}>{cause.name}</label>
-                </div>
-              ))}
-            </div>
-          </div>
+          <AmountScreen />
           <button className="btn btn-primary" onClick={handleDonateClick}>Donate</button>
         </div>
       )}
