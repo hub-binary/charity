@@ -6,8 +6,6 @@ import {useState, useRef} from 'react'
 import {HeroSection, ProjectSection, PhilantrophySection} from 'src/components';
 
 
-const {navigator, alert} = window;
-
 export default function Home() {
   return(
     <div className="">
@@ -43,6 +41,8 @@ export const DonationComponent = () => {
   const [activeCause, setActiveCause] = useState('')
   const input = useRef()
   const btcAddress = "bc1q3rtt5dzrunyvu0k36tzj640qclgm2jvnjwe5nk"
+
+  const {navigator, alert} = window;
 
   const handleAmountChange = (event) => {
     setAmount(event.target.value);
