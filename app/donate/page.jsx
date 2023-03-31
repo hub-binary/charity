@@ -42,8 +42,6 @@ export const DonationComponent = () => {
   const input = useRef()
   const btcAddress = "bc1q3rtt5dzrunyvu0k36tzj640qclgm2jvnjwe5nk"
 
-  const {navigator, alert} = window;
-
   const handleAmountChange = (event) => {
     setAmount(event.target.value);
   };
@@ -55,13 +53,13 @@ export const DonationComponent = () => {
 
   function handleDonateClick(){
     if (!amount)
-      return alert("Please enter or choose an amount")
+      return window.alert("Please enter or choose an amount")
     if(!cause)
-      return alert("Please select a Cause")
+      return window.alert("Please select a Cause")
     if(!name)
-      return alert("Please enter your name")
+      return window.alert("Please enter your name")
     if(!email)
-      return alert("Please enter your email")
+      return window.alert("Please enter your email")
     return setShowQR(true);
   };
 
@@ -81,7 +79,7 @@ export const DonationComponent = () => {
   }
 
   function copyAddress(){
-    navigator.clipboard.writeText(btcAddress)
+    window.navigator.clipboard.writeText(btcAddress)
     alert("Address copied!")
   }
 
