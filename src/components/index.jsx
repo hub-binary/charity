@@ -30,14 +30,7 @@ export const Navbar = ({ toggleNav }) => {
               </li>
 
               <li>
-                <Link href="#" class="fh5co-sub-ddown">Projects</Link>
-                 <ul class="fh5co-sub-menu">
-                  <li><Link href="/causes/food-and-water">Food and Water Provision</Link></li>
-                  <li><Link href="/causes/clothing">Clothing Giving</Link></li>
-                  <li><Link href="/causes/medical">Housing and Medical Care</Link></li>
-                  <li><Link href="/causes/toys">Toys Provision</Link></li>
-                  <li><Link href="/causes/education">Education for Growth</Link></li>
-                </ul>
+                <Link href="/causes">Projects</Link>
               </li>
               
               <li><Link href="/about">About</Link></li>
@@ -70,16 +63,9 @@ export const Sidebar = ({}) => {
         </li>
 
         <li>
-          <a href="#" class="fh5co-sub-ddown sf-with-ul">Projects</a>
-           <ul class="fh5co-sub-menu" style={{display: "none"}}>
-            <li><Link href="/causes/food-and-water">Food and Water Provision</Link></li>
-            <li><Link href="/causes/clothing">Clothing Giving</Link></li>
-            <li><Link href="/causes/medical">Housing and Medical Care</Link></li>
-            <li><Link href="/causes/toys">Toys Provision</Link></li>
-            <li><Link href="/causes/education">Education for Growth</Link></li>
-          </ul>
+          <Link href="/causes">Projects</Link>
         </li>
-
+        
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>

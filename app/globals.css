@@ -56,13 +56,31 @@
   cursor: pointer;
 }
 
-.amount.active{
+.amount.active,
+.cause.active{
   border-color: orange;
+}
+
+.btc-addr {
+  margin-bottom: 10px; 
+  padding: 12px;
+  background: lavender;
+  width: max-content;
+}
+
+.centered{
+  dispay: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .amount:hover{
   border-color: orange;
   transition: border .5s;
+}
+
+.mb-2{
+  margin-bottom: 1.725rem;
 }
 
 .amount-row{
@@ -75,6 +93,10 @@
 
 .list{
   list-style: none;
+}
+
+.mb-1{
+  margin-bottom: 10px;
 }
 
 
@@ -200,7 +222,9 @@ a {
   padding: 20px;
 }
 
-
+.mb-0{
+  margin-bottom: 0px;
+}
 
 .btn-primary{
   background: #eb5521;
