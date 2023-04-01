@@ -69,8 +69,28 @@ export const DonationComponent = () => {
     setActiveAmount('other')
   }
 
-  function onDonation(){
+  function sendDonation(){
+    fetch(`/api/donate`, {
+      method: 'post',
+      headers: {"Content-Type": 'application/json'},
+      body: JSON.stringify({
+        name,
+        email,
+        cause,
+        amount,
+        notes
+      })
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.log("Error:", err))
+  }
 
+  function onDonation(){
+    setShowQR(false);
+    setDonated(true);
+
+    // return sendDonation()
   }
 
   function changeAmount(amt){
@@ -108,13 +128,25 @@ export const DonationComponent = () => {
               />
             </div>
 
-            <div className="centered">
+            <div className="centered mb-2">
               <h4 className="btc-addr"> ${btcAddress} </h4>
               <button className="btn" onClick={copyAddress}>Copy Address</button>
             </div>
+
+            <div className="">
+              <h3> How to Donate </h3>
+              <ol>
+                <li> Copy the bitcoin address above or scan the QR code </li>
+                <li> Send your donation to the address </li>
+                <li> Click the "I've made a donation" button to send us a notification</li>                
+                <li> We'll send you an email to confirm your donation and update you on our progress.</li>
+              </ol>
+
+              <button onClick={handleDonateClick} className="btn btn-primary"> I've made a Donation </button>
+            </div>
           </div>
           ) : donated ? (
-          <div>
+          <div className="centered mt-3">
             <h4> Thank You for your Donation.</h4>
             <p> Someone from our team may reach out to you soon! </p>
           </div>
@@ -124,12 +156,12 @@ export const DonationComponent = () => {
               <div>
                 <div className="form-group">
                   <h4 className="mb-1">Please enter your name </h4>
-                  <input onInput={e => setName(e.target.value)} className="input" type="text" />
+                  <input name="fullName" onInput={e => setName(e.target.value)} className="input" type="text" />
                 </div>
 
                 <div className="form-group">
                   <h4 className="mb-1"> Your Email </h4>
-                  <input onInput={e => setEmail(e.target.value)} className="input" type="email" />
+                  <input name="email" onInput={e => setEmail(e.target.value)} className="input" type="email" />
                 </div>
               </div>
 
@@ -148,7 +180,7 @@ export const DonationComponent = () => {
 
                 <h4 class="mb-1">Please enter the amount you wish to donate</h4>
                   
-                <input ref={input} type="number" min="10" className="p-2 input" onInput={(e) => setAmount(e.target.value)} value={amount} />
+                <input name="amount" ref={input} type="number" min="10" className="p-2 input" onInput={(e) => setAmount(e.target.value)} value={amount} />
                 <div className="amount-row">
                   {amts.map(amt =>
                     <span onClick={() => changeAmount(amt)}  className={` amount ${activeAmount === `${amt}` && 'active'} `}> ${amt} </span>
@@ -157,7 +189,7 @@ export const DonationComponent = () => {
                 </div>
 
                 <h4 class="mb-1"> Additional Notes </h4>
-                <textarea onInput={e => setNotes(e.target.value)} className="input" placeholder="Type your message here"></textarea>
+                <textarea name="notes" onInput={e => setNotes(e.target.value)} className="input" placeholder="Type your message here"></textarea>
               </div>
 
               <button onClick={handleDonateClick} className="btn btn-primary"> Continue </button>
