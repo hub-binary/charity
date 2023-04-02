@@ -206,7 +206,7 @@ export const PhilantrophySection = ({ }) => {
                 <img src="/assets/images/person_1.jpg" alt="user" />
               </figure>
               <blockquote>
-                <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
+                <p>&ldquo;As a parent myself, I know how important it is to support organizations that help children in need. That's why I was so impressed with this charity for children - they are truly making a difference in the lives of so many young people. Whether it's providing food, medical care, or education, this organization goes above and beyond to ensure that every child has the opportunity to succeed. I am so grateful for all they do, and I urge everyone to consider supporting their important work.&rdquo;</p>
               </blockquote>
               <span>Jean Doe, XYZ Co.</span>
             </div>
@@ -217,7 +217,7 @@ export const PhilantrophySection = ({ }) => {
                 <img src="/assets/images/person_2.jpg" alt="user" />
               </figure>
               <blockquote>
-                <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
+                <p>&ldquo;I have been supporting this charity for children for years now, and I am constantly blown away by the impact they have on young lives. From providing food and shelter to offering educational opportunities, this organization truly goes above and beyond to ensure that every child has the chance to thrive. Their dedication and hard work is truly inspiring, and I feel proud to be a part of their mission.&rdquo;</p>
               </blockquote>
               <span>John Doe, XYZ Co.</span>
             </div>
@@ -228,7 +228,7 @@ export const PhilantrophySection = ({ }) => {
                 <img src="/assets/images/person_3.jpg" alt="user" />
               </figure>
               <blockquote>
-                <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.&rdquo;</p>
+                <p>&ldquo;I recently started volunteering with this charity for children, and I have been amazed at how well-run and organized it is. The staff and volunteers are incredibly passionate and dedicated to helping children in need, and I have seen firsthand the positive impact they have on the kids they serve. It's truly heartwarming to see how much this organization cares about making a difference in the lives of children, and I would highly recommend supporting their cause.&rdquo;</p>
               </blockquote>
               <span>John Doe, XYZ Co.</span>
             </div>
