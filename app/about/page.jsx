@@ -31,9 +31,9 @@ export default function Home() {
                 </figure>
 
                 <div>
-                  <h3>Jean Doe</h3>
+                  <h3>Kent Micheal</h3>
                   <p><span>Founder</span></p>
-                  <p>Far far away, there live the blind texts.</p>
+                  <p>Every day, we see the impact of our work in the smiles of children who have been given a chance to thrive. It's a humbling reminder of the power of community and the importance of giving back.</p>
                 </div>
               </div>
             </div>
@@ -41,13 +41,13 @@ export default function Home() {
             <div class="col-md-4">
               <div class="fh5co-team text-center animate-box">
                 <figure>
-                  <img src="/assets/images/phil-woman-2.jpg" alt="Co-Founder" />
+                  <img src="/assets/images/phil-woman-3.jpg" alt="Co-Founder" />
                 </figure>
 
                 <div>
-                  <h3>John Doe</h3>
+                  <h3>Abigail Lakewood</h3>
                   <p><span>Co-Founder</span></p>
-                  <p>Far far away, there live the blind texts.</p>
+                  <p>I am continually inspired by the generosity and compassion of our supporters. Whether you've donated your time, your money, or your resources, you have played a crucial role in helping us make a difference.</p>
                 </div>
               </div>
             </div>
