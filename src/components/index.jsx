@@ -208,18 +208,18 @@ export const PhilantrophySection = ({ }) => {
               <blockquote>
                 <p>&ldquo;As a parent myself, I know how important it is to support organizations that help children in need. That's why I was so impressed with this charity for children - they are truly making a difference in the lives of so many young people. Whether it's providing food, medical care, or education, this organization goes above and beyond to ensure that every child has the opportunity to succeed. I am so grateful for all they do, and I urge everyone to consider supporting their important work.&rdquo;</p>
               </blockquote>
-              <span>Jean Doe, XYZ Co.</span>
+              <span>Jen Miller, Mother of Two.</span>
             </div>
           </div>
           <div class="col-md-4">
             <div class="fh5co-testimonial text-center animate-box">
               <figure>
-                <img src="/assets/images/phil-man-2.jpg" alt="user" />
+                <img src="/assets/images/phil-man-2.png" alt="user" />
               </figure>
               <blockquote>
                 <p>&ldquo;I have been supporting this charity for children for years now, and I am constantly blown away by the impact they have on young lives. From providing food and shelter to offering educational opportunities, this organization truly goes above and beyond to ensure that every child has the chance to thrive. Their dedication and hard work is truly inspiring, and I feel proud to be a part of their mission.&rdquo;</p>
               </blockquote>
-              <span>John Doe, XYZ Co.</span>
+              <span> William Drake, Chess Co.</span>
             </div>
           </div>
           <div class="col-md-4">
@@ -230,7 +230,7 @@ export const PhilantrophySection = ({ }) => {
               <blockquote>
                 <p>&ldquo;I recently started volunteering with this charity for children, and I have been amazed at how well-run and organized it is. The staff and volunteers are incredibly passionate and dedicated to helping children in need, and I have seen firsthand the positive impact they have on the kids they serve. It's truly heartwarming to see how much this organization cares about making a difference in the lives of children, and I would highly recommend supporting their cause.&rdquo;</p>
               </blockquote>
-              <span>John Doe, XYZ Co.</span>
+              <span>Miranda Grey, Volunteer.</span>
             </div>
           </div>
         </div>
