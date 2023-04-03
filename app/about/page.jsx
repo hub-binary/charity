@@ -27,7 +27,7 @@ export default function Home() {
             <div class="col-md-4">
               <div class="fh5co-team text-center animate-box">
                 <figure>
-                  <img src="/assets/images/person_1.jpg" alt="Co-Founder" />
+                  <img src="/assets/images/founder-1.jpg" alt="Co-Founder" />
                 </figure>
 
                 <div>
@@ -41,7 +41,7 @@ export default function Home() {
             <div class="col-md-4">
               <div class="fh5co-team text-center animate-box">
                 <figure>
-                  <img src="/assets/images/person_2.jpg" alt="Co-Founder" />
+                  <img src="/assets/images/phil-woman-2.jpg" alt="Co-Founder" />
                 </figure>
 
                 <div>
