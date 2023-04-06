@@ -136,7 +136,7 @@ export const DonationComponent = () => {
                     </div>
 
                     <div className="centered mb-2">
-                      <h4 className="btc-addr"> ${btcAddress} </h4>
+                      <h4 className="btc-addr"> {btcAddress} </h4>
                       <button className="btn" onClick={copyAddress}>Copy Address</button>
                     </div>
 
