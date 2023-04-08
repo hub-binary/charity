@@ -24,12 +24,10 @@ export default function Home() {
     
       console.log("Sending message", res)
 
-      return () => {
-        setMessage("")
-        setName("")
-        setEmail("")
-        window.alert("Thank you for sending us a message.")
-      }
+      setMessage("")
+      setName("")
+      setEmail("")
+      window.alert("Thank you for sending us a message.")
     }
   }
 
