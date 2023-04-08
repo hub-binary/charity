@@ -4,14 +4,29 @@ import QRCode from "qrcode.react";
 import Image from 'next/image'
 import {useState, useRef} from 'react'
 import {HeroSection, ProjectSection, PhilantrophySection} from 'src/components';
-
+import emailjs from '@emailjs/browser';
 
 export default function Home() {
+
+  async function onDonationSent(data){
+    const {name, cause, amount, notes} = data;
+
+    let res = await emailjs.send("service_ptsh8h8","template_fc1pm4n",{
+      name,
+      cause,
+      amount,
+      notes
+    });
+
+    console.log("Sending Mail....", res)
+  }
+
+
   return(
     <div className="">
       <HeroSection />
 
-      <DonationComponent />
+      <DonationComponent onDonationSent={onDonationSent} />
 
     </div>
   )
@@ -28,7 +43,7 @@ const causes = [
 
 
 
-export const DonationComponent = () => {
+export const DonationComponent = ({ onDonationSent }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [amount, setAmount] = useState(25);
@@ -69,28 +84,17 @@ export const DonationComponent = () => {
     setActiveAmount('other')
   }
 
-  function sendDonation(){
-    fetch(`/api/donate`, {
-      method: 'post',
-      headers: {"Content-Type": 'application/json'},
-      body: JSON.stringify({
-        name,
-        email,
-        cause,
-        amount,
-        notes
-      })
-    })
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => console.log("Error:", err))
-  }
-
   function onDonation(){
     setShowQR(false);
     setDonated(true);
 
-    // return sendDonation()
+    onDonationSent({
+      name,
+      email,
+      cause,
+      amount,
+      notes
+    })
   }
 
   function changeAmount(amt){

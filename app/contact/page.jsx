@@ -1,13 +1,36 @@
 'use client'
 import {HeroSection} from 'src/components'
-import Image from 'next/image'
-// import styles from './page.module.css'
+import {useState} from 'react';
+import emailjs from '@emailjs/browser';
 
 
 export default function Home() {
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+  const [name, setName] = useState("")
 
-  function handleForm(e){
+
+
+
+  async function handleForm(e){
     e.preventDefault();
+
+    if (email && name && message){
+      let res = await emailjs.send("service_ptsh8h8","template_kaxqtfq",{
+        name,
+        email,
+        message,
+      });
+    
+      console.log("Sending message", res)
+
+      return () => {
+        setMessage("")
+        setName("")
+        setEmail("")
+        window.alert("Thank you for sending us a message.")
+      }
+    }
   }
 
 
@@ -31,21 +54,25 @@ export default function Home() {
             </div>
             <div class="col-md-6">
               <div class="row">
+
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Name" />
+                    <input value={name} onInput={e => setName(e.target.value)} required name="name" type="text" class="form-control" placeholder="Name" />
                   </div>
                 </div>
+
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Email" />
+                    <input value={email} onInput={e => setEmail(e.target.value)} required name='email' type="email" class="form-control" placeholder="Email" />
                   </div>
                 </div>
+
                 <div class="col-md-12">
                   <div class="form-group">
-                    <textarea name="" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
+                    <textarea value={message} onInput={e => setMessage(e.target.value)} required name="message" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
                   </div>
                 </div>
+
                 <div class="col-md-12">
                   <div class="form-group">
                     <input type="submit" value="Send Message" class="btn btn-primary" />

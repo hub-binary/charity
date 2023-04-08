@@ -4,6 +4,9 @@ import './globals.css'
 import {createContext} from 'react';
 import { Roboto } from 'next/font/google'
 import {Navbar, Sidebar} from 'src/components'
+import emailjs from '@emailjs/browser';
+
+
 
 const inter = Roboto({ 
   subsets: ['latin'],
@@ -14,6 +17,8 @@ const inter = Roboto({
 export const GlobalStore = createContext();
 
 export default function RootLayout({ children }) {
+  emailjs.init("6nBtf5wdSz0gBGLEY")
+  
   function toggleNav(){
     let menu = document.querySelector('#offcanvas-menu');
     menu.classList.toggle('open');
