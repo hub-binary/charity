@@ -2,7 +2,7 @@
 // import 'bootstrap/dist/css/bootstrap.css'
 import QRCode from "qrcode.react";
 import Image from 'next/image'
-import {useState, useRef} from 'react'
+import {useState, useRef, Fragment} from 'react'
 import {HeroSection, ProjectSection, PhilantrophySection} from 'src/components';
 import emailjs from '@emailjs/browser';
 
@@ -27,7 +27,6 @@ export default function Home() {
       <HeroSection />
 
       <DonationComponent onDonationSent={onDonationSent} />
-
     </div>
   )
 }
@@ -54,8 +53,10 @@ export const DonationComponent = ({ onDonationSent }) => {
   const [step, setStep] = useState(1);
   const [activeAmount, setActiveAmount] = useState('25')
   const [activeCause, setActiveCause] = useState('')
+  const [donationType, setDonationType] = useState('btc')
   const input = useRef()
   const btcAddress = "bc1q3rtt5dzrunyvu0k36tzj640qclgm2jvnjwe5nk"
+  const paypalAddress = "Pride3012@gmail.com"
 
   const handleAmountChange = (event) => {
     setAmount(event.target.value);
@@ -102,8 +103,8 @@ export const DonationComponent = ({ onDonationSent }) => {
     setAmount(amt)
   }
 
-  function copyAddress(){
-    window.navigator.clipboard.writeText(btcAddress)
+  function copyAddress(address=btcAddress){
+    window.navigator.clipboard.writeText(address)
     alert("Address copied!")
   }
 
@@ -128,7 +129,52 @@ export const DonationComponent = ({ onDonationSent }) => {
               <p> Someone from our team may reach out to you soon! </p>
             </div>
          : showQR ? 
-                (
+          (
+            <Fragment>
+              <div className="d-flex just-center">
+              {
+                donationType === "paypal" ? (
+                  <button onClick={() => setDonationType("btc")} className="donation-sel btn">
+                    Donate with Bitcoin
+                  </button>
+                ) : (
+                <button onClick={() => setDonationType("paypal")} className="donation-sel btn">
+                  Donate with Paypal
+                </button>
+                )
+              }
+              </div>
+
+              {
+                donationType === "paypal" ? (
+                  <div className="centered">
+                    <h3> Scan the QRCode or Copy the address below </h3>
+
+                    <div className="mb-2">
+                      <QRCode 
+                        size={256}
+                        value={`${paypalAddress}`}
+                      />
+                    </div>
+
+                    <div className="centered mb-2">
+                      <h4 className="btc-addr"> {paypalAddress} </h4>
+                      <button className="btn" onClick={() => copyAddress(paypalAddress)}> Copy Address </button>
+                    </div>
+
+                    <div className="">
+                      <h3> How to Donate </h3>
+                      <ol>
+                        <li> Copy the PayPal address above or scan the QR code </li>
+                        <li> Send your donation to the address </li>
+                        <li> Click the "I've made a donation" button to send us a notification</li>                
+                        <li> We'll send you an email to confirm your donation and update you on our progress.</li>
+                      </ol>
+
+                      <button onClick={onDonation} className="btn btn-primary"> I've made a Donation </button>
+                    </div>
+                  </div>
+                ):(
                   <div className="centered">
                     <h3> Scan the QRCode or Copy the address below </h3>
 
@@ -156,52 +202,55 @@ export const DonationComponent = ({ onDonationSent }) => {
                       <button onClick={onDonation} className="btn btn-primary"> I've made a Donation </button>
                     </div>
                   </div>
-                ) : (
+                )
+              }
+            </Fragment>
+          ) : (
+            <div>
+              {/* Contact info */}
+              <div>
+                <div className="form-group">
+                  <h4 className="mb-1">Please enter your name </h4>
+                  <input name="fullName" onInput={e => setName(e.target.value)} className="input" type="text" />
+                </div>
+
+                <div className="form-group">
+                  <h4 className="mb-1"> Your Email </h4>
+                  <input name="email" onInput={e => setEmail(e.target.value)} className="input" type="email" />
+                </div>
+              </div>
+
+              {/* Amount and Cause */}
+              <div style={{ marginTop: '2rem'}}>
+                <div style={{ marginTop: '2rem'}}>
+                  <h4 className="mb-1">Please select a project you would love to support with a donation</h4>
                   <div>
-                    {/* Contact info */}
-                    <div>
-                      <div className="form-group">
-                        <h4 className="mb-1">Please enter your name </h4>
-                        <input name="fullName" onInput={e => setName(e.target.value)} className="input" type="text" />
-                      </div>
-
-                      <div className="form-group">
-                        <h4 className="mb-1"> Your Email </h4>
-                        <input name="email" onInput={e => setEmail(e.target.value)} className="input" type="email" />
-                      </div>
-                    </div>
-
-                   {/* Amount and Cause */}
-                    <div style={{ marginTop: '2rem'}}>
-                      <div style={{ marginTop: '2rem'}}>
-                        <h4 className="mb-1">Please select a project you would love to support with a donation</h4>
-                        <div>
-                          <ul className="list">
-                          {causes.map((cause) => 
-                            <li className={`cause ${activeCause === cause && 'active'}`} key={cause} onClick={() => selectCause(cause)}> {cause}</li>
-                          )}
-                        </ul>
-                        </div>
-                      </div>
-
-                      <h4 class="mb-1">Please enter the amount you wish to donate</h4>
-                        
-                      <input name="amount" ref={input} type="number" min="10" className="p-2 input" onInput={(e) => setAmount(e.target.value)} value={amount} />
-                      <div className="amount-row">
-                        {amts.map(amt =>
-                          <span onClick={() => changeAmount(amt)}  className={` amount ${activeAmount === `${amt}` && 'active'} `}> ${amt} </span>
-                        )}
-                        <span  onClick={handleAmountClick} className={` amount ${activeAmount === 'other' && 'active'} `}> Other </span>
-                      </div>
-
-                      <h4 class="mb-1"> Additional Notes </h4>
-                      <textarea name="notes" onInput={e => setNotes(e.target.value)} className="input" placeholder="Type your message here"></textarea>
-                    </div>
-
-                    <button onClick={handleDonateClick} className="btn btn-primary"> Continue </button>
+                    <ul className="list">
+                    {causes.map((cause) => 
+                      <li className={`cause ${activeCause === cause && 'active'}`} key={cause} onClick={() => selectCause(cause)}> {cause}</li>
+                    )}
+                  </ul>
                   </div>
-              )
-         }        
+                </div>
+
+                <h4 class="mb-1">Please enter the amount you wish to donate</h4>
+                  
+                <input name="amount" ref={input} type="number" min="10" className="p-2 input" onInput={(e) => setAmount(e.target.value)} value={amount} />
+                <div className="amount-row">
+                  {amts.map(amt =>
+                    <span onClick={() => changeAmount(amt)}  className={` amount ${activeAmount === `${amt}` && 'active'} `}> ${amt} </span>
+                  )}
+                  <span  onClick={handleAmountClick} className={` amount ${activeAmount === 'other' && 'active'} `}> Other </span>
+                </div>
+
+                <h4 class="mb-1"> Additional Notes </h4>
+                <textarea name="notes" onInput={e => setNotes(e.target.value)} className="input" placeholder="Type your message here"></textarea>
+              </div>
+
+              <button onClick={handleDonateClick} className="btn btn-primary"> Continue </button>
+            </div>
+          )
+        }        
       </div>
     </div>
   );
