@@ -9,13 +9,14 @@ import emailjs from '@emailjs/browser';
 export default function Home() {
 
   async function onDonationSent(data){
-    const {name, cause, amount, notes} = data;
+    const {name, cause, amount, notes, email} = data;
 
     let res = await emailjs.send("service_ptsh8h8","template_fc1pm4n",{
       name,
       cause,
       amount,
-      notes
+      notes,
+      email
     });
 
     console.log("Sending Mail....", res)
