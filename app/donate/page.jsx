@@ -57,7 +57,7 @@ export const DonationComponent = ({ onDonationSent }) => {
   const [donationType, setDonationType] = useState('btc')
   const input = useRef()
   const btcAddress = "bc1q3rtt5dzrunyvu0k36tzj640qclgm2jvnjwe5nk"
-  const paypalAddress = "Pride3012@gmail.com"
+  const paypalAddress = "mamor0840@gmail.com"
 
   const handleAmountChange = (event) => {
     setAmount(event.target.value);
